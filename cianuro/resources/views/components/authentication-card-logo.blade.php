@@ -1,0 +1,1 @@
+<img src="{{ asset('storage/img/SIMPSONS 2A.jpg')}}" alt="" width="50px" height="50px">

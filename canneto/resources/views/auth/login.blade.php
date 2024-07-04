@@ -39,5 +39,6 @@
 
         </form>
     </div>
+    @vite(['resources/js/login.js'])
 </body>
 </html>

@@ -44,7 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     togglePassword.addEventListener("click", () => {
         // Cambia solo il tipo di input, non lo stile
-        passwordInput.type =
-            passwordInput.type === "password" ? "text" : "password";
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.textContent = "🔒"; // Cambia l'emoji a lucchetto
+        } else {
+            passwordInput.type = "password";
+            togglePassword.textContent = "👁️"; // Cambia l'emoji a occhio
+        }
     });
 });

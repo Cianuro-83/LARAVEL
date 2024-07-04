@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+input {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #212428;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.login {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.login::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background-image: linear-gradient(
+        0deg,
+        transparent,
+        transparent,
+        #45f3ff,
+        #45f3ff,
+        #45f3ff
+    );
+    animation: animate 6s linear infinite;
+    filter: blur(-5px);
+    border-radius: 8px;
+    transform-origin: bottom right;
+}
+
+.login::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background-image: linear-gradient(
+        0deg,
+        transparent,
+        transparent,
+        #45de27,
+        #45de27,
+        #45de27
+    );
+    animation: animate 6s linear infinite;
+    filter: blur(-5px);
+    border-radius: 8px;
+    transform-origin: bottom right;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.login form {
+    position: absolute;
+    inset: 4px;
+    background-color: #1e2024;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    color: whitesmoke;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.input {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+    padding: 0 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: whitesmoke;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #b0b3b8; // Colore del placeholder
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-bottom: 2px solid #3498db;
+}
+
+.link {
+    margin-top: 15px;
+}
+
+.ms-4 {
+    margin-top: 20px;
+    background-color: #3498db;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ms-4:hover {
+    background-color: #2980b9;
+}
+
+label {
+    position: absolute;
+    left: 0;
+    padding: 20px 0 10px;
+    pointer-events: none;
+    color: #8f8f8f;
+    font-size: 1em;
+    letter-spacing: 0.5;
+    transition: 0.5s;
+}
+
+.input input:focus ~ label {
+    color: whitesmoke;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+
+span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #fff;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.input input:focus ~ span {
+    height: 44px;
+}
+
+.link {
+    text-align: right;
+}
+
+.link a {
+    margin: 10px 0;
+    font-size: 0.7em;
+    color: #8f8f8f;
+    text-decoration: none;
+
+    &:hover {
+        color: rgb(238, 5, 5);
+    }
+}

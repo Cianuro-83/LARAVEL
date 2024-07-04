@@ -107,7 +107,8 @@ h2 {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -123,12 +124,14 @@ input[type="password"] {
 }
 
 input[type="email"]::placeholder,
-input[type="password"]::placeholder {
+input[type="password"]::placeholder,
+input[type="text"]::placeholder {
     color: #b0b3b8; // Colore del placeholder
 }
 
 input[type="email"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="text"]:focus {
     border-bottom: 2px solid #3498db;
 }
 
@@ -199,4 +202,28 @@ span {
     &:hover {
         color: rgb(238, 5, 5);
     }
+}
+
+.termini-e-condizioni {
+    font-size: 9px;
+    margin-top: 15px;
+    color: #8f8f8f;
+    a {
+        color: red;
+        cursor: pointer;
+
+        &:hover {
+            color: greenyellow;
+        }
+    }
+}
+
+.close {
+    position: absolute;
+    top: 240px;
+    right: 45px;
+    cursor: pointer;
+    color: #8f8f8f;
+    font-size: 1.5rem;
+    z-index: 999;
 }

@@ -37,4 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Aggiungi il toggle per la visibilità della password
+    const togglePassword = document.querySelector(".close");
+    const passwordInput = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+        // Cambia solo il tipo di input, non lo stile
+        passwordInput.type =
+            passwordInput.type === "password" ? "text" : "password";
+    });
 });

@@ -20,11 +20,11 @@
             </div>
 
             <div class="input">
-                <input id="password" type="password" name="password" required minlength="8" autocomplete="current-password">
+                <input id="password" class="block mt-1 w-full" type="password" name="password" required minlength="8" autocomplete="current-password">
                 <label for="password">Password</label>
                 <span></span>
             </div>
-
+         
             <div class="link">
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
@@ -37,7 +37,15 @@
                 {{ __('Accedi') }}
             </x-button>
 
+            <div>
+                <p class="termini-e-condizioni">Accedendo al Pannello di Amministrazione sia la <a href="{{ route('privacy-policy') }}">Privacy Policy</a> che i <a href="{{ route('termini&condizioni') }}">Termini e Condizioni d'uso</a></p>
+            </div>
+
+            
         </form>
+        <a class="close" >
+            👁️
+        </a>
     </div>
     @vite(['resources/js/login.js'])
 </body>

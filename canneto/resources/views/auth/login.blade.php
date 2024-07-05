@@ -12,16 +12,16 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <h2>Accedi al Pannello di Amministrazione</h2>
+            <h2 >Accedi al Pannello di Amministrazione</h2>
             <div class="input">
                 <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-                <label for="email">Email</label>
+                <label for="email">📨 Email</label>
                 <span></span>
             </div>
 
             <div class="input">
                 <input id="password" class="block mt-1 w-full" type="password" name="password" required minlength="8" autocomplete="current-password">
-                <label for="password">Password</label>
+                <label for="password">🔑 Password</label>
                 <span></span>
             </div>
          

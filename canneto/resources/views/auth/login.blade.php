@@ -12,6 +12,14 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
+            @if ($errors->any())
+                <div class="error-message" id="error-message">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+
             <h2 >Accedi al Pannello di Amministrazione</h2>
             <div class="input">
                 <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
@@ -38,12 +46,11 @@
             </x-button>
 
             <div>
-                <p class="termini-e-condizioni">Accedendo al Pannello di Amministrazione sia la <a href="{{ route('privacy-policy') }}">Privacy Policy</a> che i <a href="{{ route('termini&condizioni') }}">Termini e Condizioni d'uso</a></p>
+                <p class="termini-e-condizioni">Accedendo al Pannello di Amministrazione accetti la <a href="{{ route('privacy-policy') }}">Privacy Policy</a> e i <a href="{{ route('termini&condizioni') }}">Termini e Condizioni d'uso</a></p>
             </div>
 
-            
         </form>
-        <a class="close" >
+        <a class="close">
             👁️
         </a>
     </div>

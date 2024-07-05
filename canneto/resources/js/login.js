@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Seleziona tutti gli elementi di input all'interno di elementi con classe 'input'
     const inputs = document.querySelectorAll(".input input");
 
+    // Mostra il messaggio di errore
+    const errorMessage = document.getElementById("error-message");
+    if (errorMessage && errorMessage.textContent.trim() !== "") {
+        errorMessage.style.display = "block";
+    }
+
     // Itera su ogni input trovato
     inputs.forEach((input) => {
         // Controlla al caricamento della pagina

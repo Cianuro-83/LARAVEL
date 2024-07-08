@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('/dashboard');
+    if (auth()->check()) {
+        return redirect('/dashboard');
+    } else {
+        return view('cianuro-dev');
+    }
 });
 
  // Route per Privacy Policy

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+
 
 Route::get('/', function () {
     if (auth()->check()) {
@@ -9,6 +12,12 @@ Route::get('/', function () {
         return view('cianuro-dev');
     }
 });
+
+Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+
+
+
+
 
  // Route per Privacy Policy
  Route::get('/privacy-policy', function () {

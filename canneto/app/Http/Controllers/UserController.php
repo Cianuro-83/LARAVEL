@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function dashboard()
+    public function checkAnswer(Request $request)
     {
-        return view('dashboard');
+        
+        $userResponse = strtolower(trim(preg_replace('/\s+/', '', $request->input('user_response'))));
+    
+        
+        $correctAnswer = strtolower(trim(preg_replace('/\s+/', '', env('CIANURO_DEV_ANSWER'))));
+    
+        if ($userResponse === $correctAnswer) {
+            return redirect()->route('dashboard');
+        } else {
+            return back()->withErrors(['message' => 'Spiacente... non sono autorizzato ad aiutarti']);
+        }
     }
 }

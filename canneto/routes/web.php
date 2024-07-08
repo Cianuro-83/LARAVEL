@@ -16,6 +16,9 @@ Route::get('/', function () {
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
 
+Route::post('/check-answer', [UserController::class, 'checkAnswer'])->name('check.answer');
+
+
 
 
 

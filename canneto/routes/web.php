@@ -37,8 +37,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    // Route Admin di filament che va a sostituire la Dashboard di jetstream
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect('/admin');
     })->name('dashboard');
 
     // BLOCCARE LE RICHIESTE DI REGISTRAZIONE

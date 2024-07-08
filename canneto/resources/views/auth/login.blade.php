@@ -8,6 +8,9 @@
     @vite(['resources/scss/login.scss'])
 </head>
 <body>
+    <div class="logo">
+        <img src="{{ asset('storage/icone/invisibile.png') }}" alt="">
+    </div>
     <div class="login">
         <form method="POST" action="{{ route('login') }}">
             @csrf

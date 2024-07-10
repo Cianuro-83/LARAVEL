@@ -25,22 +25,36 @@
     @if ($profileItem?->isVisible() ?? true)
         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::USER_MENU_PROFILE_BEFORE) }}
 
+        {{-- AGGIUNTA AVATAR E NOME UTENTE --}}
+
         @if ($hasProfileItem)
-            <x-filament::dropdown.list>
-                <x-filament::dropdown.list.item :color="$profileItem?->getColor()" :icon="$profileItem?->getIcon() ??
-                    (\Filament\Support\Facades\FilamentIcon::resolve('panels::user-menu.profile-item') ??
-                        'heroicon-m-user-circle')" :href="$profileItemUrl ?? filament()->getProfileUrl()" :target="$profileItem?->shouldOpenUrlInNewTab() ?? false ? '_blank' : null"
-                    tag="a">
-                    {{ $profileItem?->getLabel() ?? (($profilePage ? $profilePage::getLabel() : null) ?? filament()->getUserName($user)) }}
-                </x-filament::dropdown.list.item>
-            </x-filament::dropdown.list>
-        @else
-            <x-filament::dropdown.header :color="$profileItem?->getColor()" :icon="$profileItem?->getIcon() ??
-                (\Filament\Support\Facades\FilamentIcon::resolve('panels::user-menu.profile-item') ??
-                    'heroicon-m-user-circle')">
-                {{ $profileItem?->getLabel() ?? filament()->getUserName($user) }}
-            </x-filament::dropdown.header>
-        @endif
+    <x-filament::dropdown.list>
+        <x-filament::dropdown.list.item 
+            :color="$profileItem?->getColor()" 
+            :href="$profileItemUrl ?? filament()->getProfileUrl()" 
+            :target="$profileItem?->shouldOpenUrlInNewTab() ?? false ? '_blank' : null"
+            tag="a"
+        >
+            <img 
+                src="{{ $user->getFilamentAvatarUrl() }}" 
+                alt="{{ filament()->getUserName($user) }}" 
+                class="inline-block w-6 h-6 rounded-full mr-2"
+            />
+            {{ $profileItem?->getLabel() ?? (($profilePage ? $profilePage::getLabel() : null) ?? filament()->getUserName($user)) }}
+        </x-filament::dropdown.list.item>
+    </x-filament::dropdown.list>
+@else
+    <x-filament::dropdown.header :color="$profileItem?->getColor()">
+        <img 
+            src="{{ $user->getFilamentAvatarUrl() }}" 
+            alt="{{ filament()->getUserName($user) }}" 
+            class="inline-block w-6 h-6 rounded-full mr-2"
+        />
+        {{ $profileItem?->getLabel() ?? filament()->getUserName($user) }}
+    </x-filament::dropdown.header>
+@endif
+
+        
         {{-- AGGIUNTA PROFILO UTENTE JETSTREAM A FILAMENT PHP --}}
         <hr >
         <a href="{{ route('profile.show') }}">

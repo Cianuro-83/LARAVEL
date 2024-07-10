@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-
+use function Pest\Laravel\get;
 
 Route::get('/', function () {
     if (auth()->check()) {
@@ -41,6 +41,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return redirect('/admin');
     })->name('dashboard');
+
 
     // BLOCCARE LE RICHIESTE DI REGISTRAZIONE
     Route::get('/register', function () {

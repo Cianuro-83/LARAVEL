@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 
 use function Pest\Laravel\get;
 
+// Rotte per Utenti loggati e non
 Route::get('/', function () {
     if (auth()->check()) {
         return redirect('/dashboard');
@@ -13,13 +14,9 @@ Route::get('/', function () {
     }
 });
 
+// ROUTE PER LA WELCOME PAGE cianuro-dev
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-
-
 Route::post('/check-answer', [UserController::class, 'checkAnswer'])->name('check.answer');
-
-
-
 
 
  // Route per Privacy Policy
@@ -32,6 +29,7 @@ Route::get('/termini&condizioni', function () {
     return view('termini&condizioni');
 })->name('termini&condizioni');
 
+// ROUTE PROTETTE DA JETSTREAM
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -42,8 +40,7 @@ Route::middleware([
         return redirect('/admin');
     })->name('dashboard');
 
-
-    // BLOCCARE LE RICHIESTE DI REGISTRAZIONE
+    // BLOCCARE LE RICHIESTE DI REGISTRAZIONE DI JEATSTREAM
     Route::get('/register', function () {
         return redirect('/dashboard');
     });

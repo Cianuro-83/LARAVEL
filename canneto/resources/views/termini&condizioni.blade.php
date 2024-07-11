@@ -9,7 +9,7 @@
                 <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200 text-center">Termini e condizioni d'uso</h1>
 
                 {{-- bottone torna indietro --}}
-                <a class="btn btn-primary" href="{{ url()->previous() }}">Torna indietroo</a>
+                <a class="btn btn-primary" href="{{ url()->previous() }}">Torna indietro</a>
             </div>
         </div>
     </div>
